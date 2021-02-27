@@ -1,34 +1,16 @@
 """
+Module:
 war.py
-War card game written for fun while following the 'Complete Python Developer Certification Course' by Imtiaz Ahmad, on Udemy.
 
-Handles the primary functions
+War card game written for fun while following the 'Complete Python Developer Certification Course' by Imtiaz Ahmad, on Udemy.
+This is the main module of the War cards game, contains the game logic.
 """
 
-
-def canvas(with_attribution=True):
-    """
-    Placeholder function to show example docstring (NumPy format)
-
-    Replace this function and doc string for your own project
-
-    Parameters
-    ----------
-    with_attribution : bool, Optional, default: True
-        Set whether or not to display who the quote is from
-
-    Returns
-    -------
-    quote : str
-        Compiled string including quote and optional attribution
-    """
-
-    quote = "The code is but a canvas to our imagination."
-    if with_attribution:
-        quote += "\n\t- Adapted from Henry David Thoreau"
-    return quote
+from card_class import Card
+from deck_class import Deck
 
 
 if __name__ == "__main__":
-    # Do something if this file is invoked on its own
-    print(canvas())
+    game = Deck()
+    print(game)
+    # awaiting implementation
