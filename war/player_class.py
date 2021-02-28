@@ -19,7 +19,7 @@ class Player:
     # dunder method to print player object
     def __str__(self):
         player_info = ''
-        player_info += "{}, I have {} cards!".format(self.name, len(self.cards))
+        player_info += "{}, has {} cards!".format(self.name, len(self.cards))
         return player_info
 
     # dunder to get the number of cards of this Player
