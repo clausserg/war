@@ -14,4 +14,5 @@ class Card:
 
     #  dunder to print tis card infor
     def __str__(self):
-        return "{} of {}, worth {} points.".format(self.rank, self.suit, self.value)
+        return "{} of {}, worth {} points."\
+                .format(self.rank, self.suit, self.value)
