@@ -5,7 +5,8 @@ deck_class.py
 This is the Deck class implementation.
 A Deck object created, will have:
 1. 52 unique Card objects with: suite, rank, value attributes
-2. A a print dunder method that prints the Cards in the deck and how many Cards the Deck contains
+2. A a print dunder method to print cards in this Deck
+3. A len dunder method to get the #cards in the Deck
 3. A method that deals one card from the Deck, from position 0
 """
 
@@ -28,12 +29,16 @@ class Deck:
             for rank, value in self.ranks.items():
                 self.cards.append(Card(suit, rank, value))
 
-    # print this deck of cards
+    # dunder method to print this deck
     def __str__(self):
-        my_cards = "There are {} cards in this deck:".format(len(self.cards))
+        deck_info = "There are {} cards in this deck:".format(len(self.cards))
         for card in self.cards:
-            my_cards += '\n' + card.__str__()
-        return my_cards
+            deck_info += '\n' + card.__str__()
+        return deck_info
+
+    # dunder method to get how many cards are in this Deck object
+    def __len__(self):
+        return len(self.cards)
 
     # method to shuffle the deck of cards
     def shuffle(self):
@@ -41,8 +46,8 @@ class Deck:
         return self.cards
 
     # method to deal cards from this deck
-    def deal(self):
-        if len(self.cards) >= 0:
-            return self.cards.pop(0)
+    def deal_card(self):
+        if len(self.cards):
+            return self.cards.pop()
         else:
             return "Sorry, this deck has no cards!"
