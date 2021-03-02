@@ -36,11 +36,11 @@ class Player:
         return self.cards
 
     # method to deal card(s)
-    def deal_cards(self, nr_cards):
-        if len(self.cards) >= nr_cards:
-            if nr_cards == 1:
+    def deal_cards(self, at_war=False):
+        try:
+            if not at_war:
                 return self.cards.pop(0)
             else:
-                return [self.cards.pop(0) for card in self.cards[:nr_cards]]
-        else:
-            return "Not enough cards"
+                return [self.cards.pop(0) for card in range(10)]
+        except IndexError:
+            print("{} has no cards!".format(self.name))
