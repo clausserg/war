@@ -5,7 +5,7 @@ war
 [![codecov](https://codecov.io/gh/REPLACE_WITH_OWNER_ACCOUNT/war/branch/master/graph/badge.svg)](https://codecov.io/gh/REPLACE_WITH_OWNER_ACCOUNT/war/branch/master)
 
 
-War card game written for fun while following the 'Complete Python Developer Certification Course' by Imtiaz Ahmad, on Udemy.
+War card game written for fun while following the '2021 Complete Python Bootcamp From Zero to Hero in Python' by Jose Portilla, on Udemy.
 
 ### Copyright
 
