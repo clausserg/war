@@ -35,12 +35,9 @@ class Player:
             self.cards.append(cards)
         return self.cards
 
-    # method to deal card(s)
+    # method to deal card(s), by default we assume that players are at war
     def deal_cards(self, at_war=False):
-        try:
-            if not at_war:
-                return self.cards.pop(0)
-            else:
-                return [self.cards.pop(0) for card in range(10)]
-        except IndexError:
-            print("{} has no cards!".format(self.name))
+        if not at_war:
+            return self.cards.pop(0)
+        else:
+            return [self.cards.pop(0) for card in range(5)]

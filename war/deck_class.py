@@ -47,7 +47,4 @@ class Deck:
 
     # method to deal cards from this deck
     def deal_card(self):
-        if len(self.cards):
-            return self.cards.pop()
-        else:
-            return "Sorry, this deck has no cards!"
+        return self.cards.pop()

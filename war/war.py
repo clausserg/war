@@ -19,16 +19,15 @@ if __name__ == "__main__":
 
     # get player names
     player_names = get_players()
-    game_over = False  # players start playing
+    game_over = False
 
     # start the actual War game
     while not game_over:
-        # create Deck object and shuffle it
+        # create a new deck of cards and shuffle it
         deck = Deck()
         deck.shuffle()
 
-        # randomize which player is created first and goes first in game
-        # then create Player objects
+        # randomize which player goes first in game
         random.shuffle(player_names)
         player_one = Player(player_names[0])
         player_two = Player(player_names[1])
@@ -47,9 +46,8 @@ if __name__ == "__main__":
         while playing:
             round += 1
             print("This is round {}!". format(round))
-            at_war = False  # players are not at war by default
 
-            # check win conditions
+            # check win/lose conditions
             if not len(player_one):
                 print(player_one)
                 print("{} lost the game!".format(player_one.name))
@@ -61,68 +59,45 @@ if __name__ == "__main__":
                 playing = False
                 break
             else:
+                print("New game session starts here!")
                 pass # go on with the game
 
             # each player drops a card on the table
-            table.get_cards(player_one.name, player_one.deal_cards(at_war))
-            table.get_cards(player_two.name, player_two.deal_cards(at_war))
+            table.get_cards(player_one.name, player_one.deal_cards(at_war=False))
+            table.get_cards(player_two.name, player_two.deal_cards(at_war=False))
 
-            # show the table
-            print('\n')
-            print(table)
-
-            # player collects the cards if his card down has higher value
-            if table.winning() == player_one.name:
-                player_one.get_cards(table.return_cards())
-            elif table.winning() == player_two.name:
-                player_two.get_cards(table.return_cards())
-            else:  # means players are at war, enter at_war loop
-                at_war = True
-                print(table.winning())
-                #  check if players can start the war session
-                if len(player_one) < 10:
-                    print("But {} has less than 10 cards!".format(player_one.name))
-                    print("{} lost the game!".format(player_one.name))
-                    playing = False
-                    break
-                elif len(player_two) < 10:
-                    print("But {} has less than 10 cards!".format(player_two.name))
-                    print("{} lost the game!".format(player_two.name))
-                    playing = False
-                    break
+            # assume that players are at war by default after first round
+            at_war = True
 
             # deal with players at war
             while at_war:
-                # players drop 10 cards on the table
-                table.get_cards(player_one.name, player_one.deal_cards(at_war))
-                table.get_cards(player_two.name, player_two.deal_cards(at_war))
-                # show the table again
+                # show the gaming table
+                # print('\n')
                 print(table)
-
-                # check who has the highest card value down on the table
+                # check win conditions or if at war
                 if table.winning() == player_one.name:
-                    print("{} won this WAR wound!".format(player_one.name))
                     player_one.get_cards(table.return_cards())
                     at_war = False
-                    break
                 elif table.winning() == player_two.name:
-                    print("{} won this WAR wound!".format(player_two.name))
                     player_two.get_cards(table.return_cards())
                     at_war = False
-                    break
-                else:
-                    print(table.winning() + " AGAIN!")
-                    # check is war session can continue or somebody lost the game
-                    if len(player_one) < 10:
-                        print("But {} has less than 10 cards!".format(player_one.name))
+                else:  # players are at war
+                # check if war can be declared, i.e. palyers have more than 5 cards
+                    if len(player_one) < 5:
+                        print("{} has less than 5 cards!".format(player_one.name))
                         print("{} lost the game!".format(player_one.name))
-                        playing = False
-                        break
-                    elif len(player_two) < 10:
-                        print("But {} has less than 10 cards!".format(player_two.name))
+                        playing = False  # end game session
+                        break  # end current at_war loop
+                    elif len(player_two) < 5:
+                        print("{} has less than 5 cards!".format(player_two.name))
                         print("{} lost the game!".format(player_two.name))
-                        playing = False
-                        break
+                        playing = False  # end game session
+                        break  # end current at_war loop
+                    else:
+                        print("At War!!!")
+                        # players drop 5 cards on the table
+                        table.get_cards(player_one.name, player_one.deal_cards(at_war=True))
+                        table.get_cards(player_two.name, player_two.deal_cards(at_war=True))
 
         # ask players if they play again
         while True:

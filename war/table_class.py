@@ -24,9 +24,7 @@ class Table:
 
     # dunder method to print Table important details
     def __str__(self):
-        out_info = "{} and {} is playing!\n"\
-                    .format(self.player_one, self.player_two)
-
+        out_info = ""
         for player in [self.player_one, self.player_two]:
             if len(self.cards[player]):
                 out_info += "{}'s last card down is {}\n"\
