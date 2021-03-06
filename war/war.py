@@ -2,9 +2,20 @@
 Module:
 war.py
 
-War card game written for fun while following the
-'Complete Python Developer Certification Course' by Imtiaz Ahmad, on Udemy.
-This is the main module of the War cards game, contains the game logic.
+This is the main module of the War card game, it contains the game logic:
+1. Set up player names
+2. A principal 'while not game_over' loop will get the game going. Players will
+play War rounds until they wish game_over to be True. In the beginning of this
+while loop, a new Deck of cards is created and shared equally among the players,
+and player's turn in game is decided.
+3. A secondary 'while playing' loops gets the players into the War game session
+until a player has lost and 'playing=False'.
+4. If players are playing a war session, i,e, 'playing=True', and they draw
+last cards of equal value, players enter the 'while at_war' and each player
+drop on table 5 cards by default. A player will lose if he has less than  five
+cards, i.e. can't declare war.
+5. If the War session enters infinite loop, each player will shuffle their cards
+and round counter will reset to zero.
 """
 
 from card_class import Card

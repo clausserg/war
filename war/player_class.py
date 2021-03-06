@@ -4,11 +4,14 @@ player_class.py
 
 This is the Player class implementation.
 A Player object:
-1. Is initialized with a name and 26 cards (half of a Deck)
-2. Will have a method to receive one or more Card objects
-3. Will have a method to deal down one or more Card objects
-4. A dunder method to print the Player name and number of cards
-5. A dunder method to print how many cards the Player has
+1. Has a name and holds a given number of cards.
+2. __str__() dunder: returns player name and number of cards he owns.
+3. __len__() dunder: easy return of how many cards the palyer owns.
+4. get_cards(...) method: allows the player to add cards in his hands.
+5. deal_cards(at_war=Flase) method: allows player to deal cards on the table,
+one card of players are not at war and five cards otherwise.
+6. shuffle() method: to be used in case players are stuck in an infinite war
+session, player will shuffle his cards.
 """
 
 

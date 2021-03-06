@@ -3,11 +3,13 @@ Module:
 deck_class.py
 
 This is the Deck class implementation.
-A Deck object created, will have:
-1. 52 unique Card objects with: suite, rank, value attributes
-2. A a print dunder method to print cards in this Deck
-3. A len dunder method to get the #cards in the Deck
-3. A method that deals one card from the Deck, from position 0
+A Deck object will have:
+1. 52 unique Card objects.
+2. __str__() dunder: returns how many cards the Deck contains, then returns the
+'str' information of each card contained.
+3. __len__() dunder: easy return of how many cards are in this deck.
+4. shuffle() method: shuffle the deck of cards.
+5. deal_card() method: draw one card from he deck (and give it to a player).
 """
 
 
@@ -36,7 +38,7 @@ class Deck:
             deck_info += '\n' + card.__str__()
         return deck_info
 
-    # dunder method to get how many cards are in this Deck object
+    # some users may use a dunder to get the deck dimension
     def __len__(self):
         return len(self.cards)
 

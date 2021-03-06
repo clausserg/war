@@ -2,12 +2,15 @@
 Module:
 table_class.py
 
-This is the Table class implementation:
-1. Will hold cards dealt down by two players
-2. Will have a method to receive one or more Card objects from each player
-3. Will have a method to deal cards to the winning Player
-4. A dunder method to print detail of the table
-5. A method returning the winning Player who gets the cards on table
+This is the Table class implementation.
+A Table object:
+1. Will have two players playing upon and a dictionary tracking player names
+and cards they drop on the table during the War rounds.
+2. __str__() dunder: returns players and their last card on the table.
+3. get_cards(...) method: take cards from payers and record them in the dictionary.
+4. return_cards(...) method: return all cards on the table to the whinning player.
+5. winning() method: return the name of the winning player, i.e. player that has
+the last card down on table with the higher value.
 """
 
 

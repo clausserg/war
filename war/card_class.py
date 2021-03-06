@@ -2,7 +2,11 @@
 Module:
 card_class.py
 
-This is class implementation for a Card object
+This is the Card class implementation.
+A Card object:
+1. Will have a suit, rank and value.
+2. __str__() dunder: returns information about the card object, i.e. card's rank,
+suit, and value.
 """
 
 
