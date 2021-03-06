@@ -11,18 +11,22 @@ A Player object:
 5. A dunder method to print how many cards the Player has
 """
 
+
+import random
+
+
 class Player:
     def __init__(self, name):
         self.name = name
         self.cards = []
 
-    # dunder method to print player object
+    # dunder method to print Player
     def __str__(self):
         player_info = ''
         player_info += "{}, has {} cards!".format(self.name, len(self.cards))
         return player_info
 
-    # dunder to get the number of cards of this Player
+    # some users may use a dunder to see how many cards a Player has
     def __len__(self):
         return len(self.cards)
 
@@ -41,3 +45,8 @@ class Player:
             return self.cards.pop(0)
         else:
             return [self.cards.pop(0) for card in range(5)]
+
+    # method to shuffle player cards, trying to get out of infinite loops
+    def shuffle(self):
+        random.shuffle(self.cards)
+        return self.cards

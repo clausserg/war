@@ -46,6 +46,15 @@ if __name__ == "__main__":
         while playing:
             round += 1
             print("This is round {}!". format(round))
+            # deal with infinite loops
+            if round > 10000:
+                print(f"{player_one.name} and {player_two.name} are in infinite loop!")
+                print(f"{player_one.name} and {player_two.name} are shuffling their cards!")
+                # shuffle player cards
+                player_one.shuffle()
+                player_two.shuffle()
+                # reset round counter
+                round = 0
 
             # check win/lose conditions
             if not len(player_one):
@@ -71,9 +80,7 @@ if __name__ == "__main__":
 
             # deal with players at war
             while at_war:
-                # show the gaming table
-                # print('\n')
-                print(table)
+                print(table)  # show the gaming table
                 # check win conditions or if at war
                 if table.winning() == player_one.name:
                     player_one.get_cards(table.return_cards())
