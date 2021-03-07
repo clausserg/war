@@ -12,7 +12,15 @@ A Deck object will have:
 5. deal_card() method: draw one card from he deck (and give it to a player).
 """
 
-from card_class import Card
+
+# dealing with this crazy import error during pytest
+# no idea whi is happening, but seems that pytest re-bases HOME to first folder
+# upwards that doesn't contain __init__(), this messes up the trivial import here.
+try:
+    from card_class import Card
+except ImportError:
+    from war.card_class import Card
+
 import random
 
 

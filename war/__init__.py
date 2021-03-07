@@ -4,10 +4,10 @@ War card game written for fun while following the 'Complete Python Developer Cer
 """
 
 # Add imports here
-from card_class import Card
-from .deck_class import Deck
-from .table_class import Table
-from .functions import get_players
+# from card_class import Card
+# from .deck_class import Deck
+# from .table_class import Table
+# from .functions import get_players
 
 
 # Handle versioneer
