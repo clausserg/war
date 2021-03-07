@@ -2,11 +2,22 @@
 Unit and regression test for the war package.
 """
 
-# Import package, test suite, and other packages as needed
-import pytest
-import sys
-from war import card_class, deck_class, table_class, functions
 
-def test_imports():
-    """Sample test"""
-    pass
+import pytest
+import mock
+import builtins
+from war.functions import get_players
+
+
+def test_get_players_mocking():
+    """Testing functions.get_players() using mocking"""
+
+    with mock.patch.object(builtins, 'input', lambda _: 'Flori'):
+        assert get_players() == ['Flori', 'Flori']
+
+
+def test_get_players_monkeypatching(monkeypatch):
+    """Testing functions.get_players() using monkeypatching"""
+
+    monkeypatch.setattr('builtins.input', lambda _: "Flori")
+    assert get_players() == ['Flori', 'Flori']
