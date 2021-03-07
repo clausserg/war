@@ -4,7 +4,7 @@ Unit and regression test for the war package.
 
 
 import pytest
-import mock
+from unittest import mock
 import builtins
 from war.functions import get_players
 
