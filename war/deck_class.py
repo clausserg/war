@@ -12,7 +12,6 @@ A Deck object will have:
 5. deal_card() method: draw one card from he deck (and give it to a player).
 """
 
-
 from card_class import Card
 import random
 
