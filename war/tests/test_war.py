@@ -33,7 +33,13 @@ def test_card_class():
 
 
 def test_len_deck_class():
-    """Testing the len dunder of the Deck class"""
+    """Testing methods of the Deck class"""
 
-    my_deck = Deck()
-    assert my_deck.__len__() == 52
+    my_deck_one = Deck()
+    my_deck_two = Deck()
+    my_deck_two.shuffle()
+    card_one = my_deck_one.deal_card()
+    card_two = my_deck_two.deal_card()
+
+    assert my_deck_one.__len__() == 51 and my_deck_two.__len__() == 51 and \
+    card_one.__str__() != card_two.__str__()
