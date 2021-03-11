@@ -38,8 +38,5 @@ def test_len_deck_class():
     my_deck_one = Deck()
     my_deck_two = Deck()
     my_deck_two.shuffle()
-    card_one = my_deck_one.deal_card()
-    card_two = my_deck_two.deal_card()
 
-    assert my_deck_one.__len__() == 51 and my_deck_two.__len__() == 51 and \
-    card_one.__str__() != card_two.__str__()
+    assert my_deck_one.__len__() == 52 and my_deck_two.__len__() == 52
